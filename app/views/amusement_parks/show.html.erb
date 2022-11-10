@@ -1,0 +1,16 @@
+<h1><%= @park.name %></h1> 
+
+<h3>Cost of Admission: $<%= @park.admission_cost %></h3> 
+
+<h2>Mechanics working on a ride:</h2>
+<% @park.ride_mechanics.each do |x| %>
+    <p><%= x.name %></p>
+<% end %>
+
+<div id="park_rides">
+    <h2>Park Rides:</h2> 
+    
+    <% @park.sorted_rides.each do |ride| %>
+        <p><%= ride.name %> - Average Mechanic Experience: <%= ride.mechanic_avg_xp %></p>
+    <% end %>  
+</div>

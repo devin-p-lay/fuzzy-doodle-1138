@@ -1,0 +1,15 @@
+<h3>Mechanic: <%= @mechanic.name %></h3> 
+<h3>Years of Experience: <%= @mechanic.years_experience %></h3>
+
+<h3>Rides currently working on: </h3>
+<% @mechanic.rides.each do |ride| %>
+    <p><%= ride.name %></p>
+<% end %> 
+
+<h3>Add a ride to workload:</h3>
+<%= form_with url: "/mechanics/#{@mechanic.id}/rides", method: :post, lcoal: true do |f| %>
+    <%= f.label :ride_id, "Ride ID:" %>
+    <%= f.number_field :ride_id %>
+
+    <%= f.submit 'Add Ride' %>
+<% end %>
